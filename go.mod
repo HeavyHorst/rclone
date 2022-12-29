@@ -1,6 +1,6 @@
 module github.com/rclone/rclone
 
-go 1.17
+go 1.18
 
 require (
 	bazil.org/fuse v0.0.0-20200524192727-fb710f7dfd05
@@ -39,6 +39,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13
 	github.com/mattn/go-runewidth v0.0.14
 	github.com/mitchellh/go-homedir v1.1.0
+	github.com/nats-io/nats.go v1.22.1
 	github.com/ncw/go-acd v0.0.0-20201019170801-fe55f33415b1
 	github.com/ncw/swift/v2 v2.0.1
 	github.com/oracle/oci-go-sdk/v65 v65.26.1
@@ -57,6 +58,7 @@ require (
 	github.com/spf13/pflag v1.0.5
 	github.com/stretchr/testify v1.8.1
 	github.com/t3rm1n4l/go-mega v0.0.0-20220725095014-c4e0c2b5debf
+	github.com/tidwall/btree v1.6.0
 	github.com/winfsp/cgofuse v1.5.1-0.20221118130120-84c0898ad2e0
 	github.com/xanzy/ssh-agent v0.3.3
 	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a
@@ -110,6 +112,9 @@ require (
 	github.com/lufia/plan9stats v0.0.0-20211012122336-39d0f177ccd0 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
+	github.com/nats-io/nats-server/v2 v2.9.10 // indirect
+	github.com/nats-io/nkeys v0.3.0 // indirect
+	github.com/nats-io/nuid v1.0.1 // indirect
 	github.com/onsi/gomega v1.13.0 // indirect
 	github.com/pengsrc/go-shared v0.2.1-0.20190131101655-1999055a4a14 // indirect
 	github.com/pkg/browser v0.0.0-20210115035449-ce105d075bb4 // indirect
