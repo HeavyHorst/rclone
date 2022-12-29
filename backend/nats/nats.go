@@ -172,7 +172,7 @@ func NewFs(ctx context.Context, name, root string, m configmap.Mapper) (fs.Fs, e
 // it returns the error fs.ErrorObjectNotFound.
 func (f *Fs) NewObject(ctx context.Context, remote string) (fs.Object, error) {
 	fmt.Println("NewObject")
-	or, err := f.store.GetInfo(remote)
+	or, err := f.store.GetInfo(remote, nats.Context(ctx))
 	if err != nil {
 		if errors.Is(err, nats.ErrObjectNotFound) {
 			return nil, fs.ErrorObjectNotFound
@@ -243,7 +243,7 @@ func (f *Fs) Put(ctx context.Context, in io.Reader, src fs.ObjectInfo, options .
 		Name: path.Join(f.root, src.Remote()),
 	}
 
-	oi, err := f.store.Put(info, in)
+	oi, err := f.store.Put(info, in, nats.Context(ctx))
 	if err != nil {
 		return nil, err
 	}
@@ -343,7 +343,7 @@ func (o *Object) Open(ctx context.Context, options ...fs.OpenOption) (in io.Read
 		}
 	}
 
-	return o.fs.store.Get(o.oremote())
+	return o.fs.store.Get(o.oremote(), nats.Context(ctx))
 }
 
 // Update the object with the contents of the io.Reader, modTime and size
@@ -354,7 +354,7 @@ func (o *Object) Update(ctx context.Context, in io.Reader, src fs.ObjectInfo, op
 		Name: o.oremote(),
 	}
 
-	oi, err := o.fs.store.Put(info, in)
+	oi, err := o.fs.store.Put(info, in, nats.Context(ctx))
 	if err != nil {
 		return err
 	}
